@@ -25,7 +25,7 @@ public class Menu extends AppCompatActivity {
         TTS = new TextToSpeak();
         TTS.textToSpeak(this, "welcome to Menu ");
         TTS = new TextToSpeak();
-        TTS.textToSpeak(this, "say send to send an Email ");
+        TTS.textToSpeak(this, "say compose to send an Email ");
         TTS = new TextToSpeak();
         TTS.textToSpeak(this, "say inbox to see new Emails ");
         TTS = new TextToSpeak();
@@ -72,7 +72,7 @@ public class Menu extends AppCompatActivity {
 
         Toast.makeText(this, st, Toast.LENGTH_SHORT).show();
         st = st.toLowerCase();
-        if (st.equals("send") ) {
+        if (st.equals("compose") ) {
             Intent send = new Intent(this ,SendMail.class);
              startActivity(send);
 
