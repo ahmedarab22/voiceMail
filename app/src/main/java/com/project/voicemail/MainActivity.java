@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(this,"connection success" , Toast.LENGTH_SHORT).show();
         textViewResult = findViewById(R.id.textViewResult);
 
         // welcome to void mail
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         TTS.textToSpeak(this, "welcome to voice mail");
 
         TTS = new TextToSpeak();
-        TTS.textToSpeak(this, "Please, say logIn to Enter the Application");
+        TTS.textToSpeak(this, "Please, say logIn to Enter the Application or Sign up to create new Account");
 
 
 
@@ -85,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(login);
 
         }
+        if(st.equals("signup") || st.equals("sign up")){
+            Intent signup = new Intent(this ,SignUp.class);
+            startActivity(signup);
+
+        }
+
         else{
             TTS.textToSpeak(this, "please  say LogIn");
 

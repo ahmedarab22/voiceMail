@@ -34,7 +34,7 @@ public class SendMail extends AppCompatActivity {
 
         TTS = new TextToSpeak();
 
-        TTS.textToSpeak(this, "YOU ARE IN SEND MAIL");
+        TTS.textToSpeak(this, "YOU ARE IN COMPOSE MAIL");
 
        // TTS = new TextToSpeak();
 
@@ -68,13 +68,13 @@ public class SendMail extends AppCompatActivity {
                     setMailSubjectAndMessage(result.get(0));
                 }
 
-                sendMail();
+                //sendMail();
 
                 break;
         }
 
     }
-    private boolean isMailEmpty(){
+    private boolean isToMailEmpty(){
         boolean flag = true;
         mEmail = (TextView) findViewById(R.id.to);
         String st =  mEmail.getText().toString();
@@ -84,33 +84,9 @@ public class SendMail extends AppCompatActivity {
         return flag;
     }
 
-    private void sendMail(){
-        String mail = mEmail.getText().toString().trim();
-        String subject = mSubject.getText().toString().trim();
-        String message = mMessage.getText().toString().trim();
-
-        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mail, subject, message);
-        javaMailAPI.execute();
-        TTS = new TextToSpeak();
-      //  TTS.textToSpeak(this, "message was sent!");
-    }
-    private boolean checkMail(){
-        return true;
-    }
-
-    private boolean isValidEmail(String email){
-
-        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
-                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
-    }
-
 
     private void setMailSubjectAndMessage(String st) {
-        if(isValidEmail(st) == true && isMailEmpty() == false){
+        if(isToMailEmpty() == false){
             st = st.toLowerCase();
            st = st.replaceAll("\\s", "");
 
@@ -126,12 +102,6 @@ public class SendMail extends AppCompatActivity {
             mEmail.setText("");
             TTS = new TextToSpeak();
             TTS.textToSpeak(this, "please enter email");
-        }
-        else if(isValidEmail(st) == false){
-            TTS = new TextToSpeak();
-            TTS.textToSpeak(this, "email is not working mail. " +
-                    "please enter email again");
-
         }
     }
 }

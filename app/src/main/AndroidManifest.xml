@@ -13,16 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VoiceMail">
         <activity
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".SendMail"
-            android:exported="false" />
-        <activity
-            android:name=".Compose"
-            android:exported="false" />
-        <activity
-            android:name=".FormOperation"
             android:exported="false" />
         <activity
             android:name=".LogIn"

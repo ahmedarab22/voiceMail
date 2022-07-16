@@ -9,10 +9,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class Menu extends AppCompatActivity {
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://voicemail-ffd5e-default-rtdb.firebaseio.com/");
+
     private TextToSpeak TTS = new TextToSpeak();
     private TextView textViewResult;
 
@@ -72,9 +77,15 @@ public class Menu extends AppCompatActivity {
 
         Toast.makeText(this, st, Toast.LENGTH_SHORT).show();
         st = st.toLowerCase();
-        if (st.equals("compose") ) {
+        if (st.equals("compose") || st.equals("composed")) {
             Intent send = new Intent(this ,SendMail.class);
              startActivity(send);
+
+        }
+        else if(st.equals("inbox")){
+
+        }
+        else if(st.equals("send") || st.equals("sent")){
 
         }
     }

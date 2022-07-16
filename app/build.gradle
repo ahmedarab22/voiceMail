@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -32,7 +33,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-   // implementation files('libs\\activation.jar')
+    implementation 'com.google.firebase:firebase-database:20.0.5'
+    // implementation files('libs\\activation.jar')
    // implementation files('libs\\additionnal.jar')
     //implementation files('libs\\mail.jar')
     testImplementation 'junit:junit:4.+'
